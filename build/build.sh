@@ -5,7 +5,7 @@ cd ~/workspace
 
 echo ==========================================
 echo
-echo === Documenting [canvas-toolkit.js]
+echo === Documenting [canvas-objects.js]
 echo === Clearing output [docs/]
 rm -fdr docs
 echo ...
@@ -26,10 +26,10 @@ echo === Documentation succeeded. Wrote to [docs/]
 echo
 echo ==========================================
 echo
-echo === Compiling [canvas-toolkit.min.js]
-ls -l canvas-toolkit.min.js
-echo === Clearing output [canvas-toolkit.min.js]
-rm -f canvas-toolkit.min.js
+echo === Compiling [canvas-objects.min.js]
+ls -l canvas-objects.min.js
+echo === Clearing output [canvas-objects.min.js]
+rm -f canvas-objects.min.js
 echo ...
 
 	java -jar node_modules/google-closure-compiler/compiler.jar \
@@ -43,7 +43,7 @@ echo ...
 				ctk/draw/Style.js						\
 				ctk/draw/Item.js						\
 			--js_output_file							\
-				canvas-toolkit.min.js					\
+				canvas-objects.min.js					\
 			--externs									\
 				"build/closure-compiler-externs.js"		\
 			--compilation_level SIMPLE					\
@@ -52,8 +52,8 @@ echo ...
 			# --process_common_js_modules				\
 
 echo ...
-ls -l canvas-toolkit.min.js
-echo === Compilation succeeded. Wrote to [canvas-toolkit.min.js]
+ls -l canvas-objects.min.js
+echo === Compilation succeeded. Wrote to [canvas-objects.min.js]
 echo
 echo ==========================================
 

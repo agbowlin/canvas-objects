@@ -1,11 +1,11 @@
-# canvas-toolkit
+# canvas-objects
 A Javascript Library for Manipulating the HTML Canvas API.
 
 
 Overview
 ------------------------------------------
 
-CTK is a Javascript library which abstracts the HTML Canvas API and encapsulates functionality to manipulate high level drawing objects on the canvas.
+`canvas-objects` is a Javascript library which abstracts the HTML Canvas API and encapsulates functionality to manipulate high level drawing objects on the canvas.
 The Canvas API allows direct drawing to a region of the browser window, via the HTML `<canvas>` placeholder element.
 The HTML Canvas is well suited for implementing dynamic interfaces within a web page.
 

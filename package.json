@@ -1,7 +1,7 @@
 {
-  "name": "canvas-toolkit",
+  "name": "canvas-objects",
 	"version": "0.01.000",
-	"homepage": "https://github.com/agbowlin/canvas-toolkit",
+	"homepage": "https://github.com/agbowlin/canvas-objects",
 	"description": "Drawing objects for the HTML Canvas.",
 	"authors": [
 		{
@@ -11,7 +11,7 @@
 		}
 	],
 
-	"main": "canvas-toolkit.js",
+	"main": "canvas-objects.js",
 
 	"moduleType": [
 		"globals"
