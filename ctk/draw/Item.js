@@ -114,8 +114,8 @@ ctk.Item = function()
 			}
 			ctk._TextMeasureCanvas.Context.restore();
 		}
-		if (this.Image)
-		{}
+		// if (this.Image)
+		// {}
 		if (this.Border)
 		{
 			this.Border.SetContentSize(rect.w, rect.h);

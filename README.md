@@ -1,12 +1,5 @@
 # canvas-toolkit
-Drawing objects for HTML Canvas
-
-CTK
-==========================================
-
-Creator's Tool Kit (CTK)
-
-A Javascript Library for Manipulating the HTML Canvas API
+A Javascript Library for Manipulating the HTML Canvas API.
 
 
 Overview
@@ -38,11 +31,11 @@ Objects
 
 - **ctk.Item**: A composite drawing object which combines a `ctk.Border` object with text display in the border's content area.
 
-- **ProcessLoop**: This object encapsulates a timer. Invokes a callback function repeatedly.
+- **ctk.ProcessLoop**: This object encapsulates a timer. Invokes a callback function repeatedly.
 
-- **Area**: A simple rectangle object with a specific coordinate system.
+- **ctk.Area**: A simple rectangle object with a specific coordinate system.
 
-- **AreaMap**: Maps coordinates between two `Area` objects. 
+- **ctk.AreaMap**: Maps coordinates between two `Area` objects. 
 
 
 Reference

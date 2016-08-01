@@ -1,0 +1,60 @@
+{
+  "name": "canvas-toolkit",
+	"version": "0.01.000",
+	"homepage": "https://github.com/agbowlin/canvas-toolkit",
+	"description": "Drawing objects for the HTML Canvas.",
+	"authors": [
+		{
+			"name": "Andre G. Bowlin",
+			"email": "agbowlin@gmail.com",
+			"homepage": "http://liquicode.com"
+		}
+	],
+
+	"main": "canvas-toolkit.js",
+
+	"moduleType": [
+		"globals"
+	],
+
+	"repository":
+	{
+		"type": "git",
+		"url": "git://github.com/agbowlin/canvas-toolkit.git"
+	},
+
+	"license": "MIT",
+
+	"keywords": [
+    "util",
+    "server",
+    "client",
+    "browser",
+    "canvas",
+    "graphics",
+    "drawing"
+	],
+
+	"ignore": [
+		".*",
+		"bower_components",
+		"node_modules",
+		"build",
+		"out",
+		"test"
+	],
+  "files": [
+    "package.json",
+    "bower.json",
+    "LICENSE",
+    "README.md",
+    "hiernode.js",
+    "hiernode.min.js"
+  ],
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "jsdoc": "^3.4.0",
+    "docdash": "^0.4.0",
+    "google-closure-compiler": "^20160713.1.0"
+  }
+}
