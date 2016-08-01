@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--
+	http://games.local/../ctk/test/test1.html
+-->
+		<title>ctk Test 1</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<style type="text/css">
+			html {
+				overflow: hidden;
+			}
+			
+			html,
+			body {
+				/*background-color: #3d3d3d;*/
+				/*background-color: #0e2f44;*/
+				background-color: #002030;
+				color: #fff;
+				font-family: "Tahoma", "Verdana", "Arial", "sans-serif";
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+
+		<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+	</head>
+
+	<body>
+
+
+		<canvas id="canvas" resize>
+			HTML5 Canvas is not supported by your browser.
+		</canvas>
+
+
+		<!--<script src="../canvas-toolkit.js"></script>-->
+		<script>
+			var ctk = {};
+		</script>
+		
+		<script src="../ctk/util/AreaMap.js"></script>
+		<script src="../ctk/util/Canvas.js"></script>
+		<script src="../ctk/util/ProcessLoop.js"></script>
+
+		<script src="../ctk/draw/Draw.js"></script>
+		<script src="../ctk/draw/Rect.js"></script>
+		<script src="../ctk/draw/Border.js"></script>
+		<script src="../ctk/draw/Style.js"></script>
+		<script src="../ctk/draw/Item.js"></script>
+
+		<script>
+			/* global $ */
+			/* global ctk */
+			
+			//---------------------------------------------------------------------
+			window.onload = function() {};
+			$(window).ready(function()
+			{
+				InitializeUI();
+			});
+			$(window).resize(ResizeUI);
+
+
+
+			//---------------------------------------------------------------------
+			function InitializeUI()
+			{
+				// var canvas = document.getElementById('canvas');
+				ResizeUI();
+				return;
+			}
+
+
+			//---------------------------------------------------------------------
+			function ResizeUI()
+			{
+				var canvas = document.getElementById('canvas');
+				var canvas_width = (canvas.parentNode.clientWidth - canvas.offsetLeft);
+				var canvas_height = (canvas.parentNode.clientHeight - canvas.offsetTop);
+				canvas_width -= 10;
+				canvas_height -= 10;
+
+				canvas.width = canvas_width;
+				canvas.height = canvas_height;
+
+				UpdateUI();
+
+				return;
+			}
+
+
+			//---------------------------------------------------------------------
+			function UpdateUI()
+			{
+				var canvas = document.getElementById('canvas');
+				var context = canvas.getContext('2d');
+
+				var y = 10;
+				var border1 = new ctk.Border();
+				border1.BorderDepth = 20;
+				border1.BorderStyle = new ctk.LineStyle(1, 'white', 'green');
+
+				border1.BorderStyle.ShadowColor = 'white';
+				border1.BorderStyle.ShadowBlur = 10;
+				// border1.BorderStyle.ShadowOffsetX = 5;
+				// border1.BorderStyle.ShadowOffsetY = 5;
+
+				border1.ClientStyle = new ctk.LineStyle(5, 'black', 'yellow');
+				border1.MoveTo(10, y).SetSize(100, 100).Render(context);
+				border1.MoveTo(border1.BorderRect.x2() + 20, y).SetSize(60, 100).Render(context);
+				border1.MoveTo(border1.BorderRect.x2() + 20, y).SetSize(100, 60).Render(context);
+				border1.MoveTo(border1.BorderRect.x2() + 20, y).SetSize(60, 60).Render(context);
+
+				y += 120;
+				var border2 = new ctk.Border();
+				border2.BorderDepth = 5;
+				border2.BorderStyle = new ctk.LineStyle(1, 'white', 'gray');
+				border2.ClientStyle = new ctk.LineStyle(1, 'black', '#cdcdcd');
+				border2.MoveTo(10, y).SetSize(100, 100).Render(context);
+				border2.MoveTo(border2.BorderRect.x2() + 20, y).SetSize(60, 100).Render(context);
+				border2.MoveTo(border2.BorderRect.x2() + 20, y).SetSize(100, 60).Render(context);
+				border2.MoveTo(border2.BorderRect.x2() + 20, y).SetSize(60, 60).Render(context);
+
+				y += 120;
+				var item = new ctk.Item();
+
+				item.Border = new ctk.Border();
+				item.Border.BorderDepth = 5;
+				item.Border.BorderStyle = new ctk.LineStyle(1, 'white', 'gray');
+				item.Border.ClientStyle = new ctk.LineStyle(1, 'black', '#cdcdcd');
+				item.Border.ContentPadding = 5;
+
+				item.Text = 'Hello, World!';
+				item.TextStyle = new ctk.Style();
+				item.TextStyle.FillStyle = 'black';
+				item.TextStyle.Font = 'bold 14px Verdana';
+
+				item.TextStyle.ShadowColor = 'gray';
+				item.TextStyle.ShadowBlur = 2;
+				item.TextStyle.ShadowOffsetX = 2;
+				item.TextStyle.ShadowOffsetY = 2;
+
+				item.MoveTo(10, y).FitText(context, null, 100).Render(context);
+				item.MoveTo(item.Border.BorderRect.x2() + 20, y).FitText(context, 100, 100).Render(context);
+				item.MoveTo(item.Border.BorderRect.x2() + 20, y).FitText(context, 60, 100).Render(context);
+				item.MoveTo(item.Border.BorderRect.x2() + 20, y).FitText(context, 100, 60).Render(context);
+				item.MoveTo(item.Border.BorderRect.x2() + 20, y).FitText(context, 60, 60).Render(context);
+
+				return;
+			}
+		</script>
+
+
+	</body>
+
+</html>
