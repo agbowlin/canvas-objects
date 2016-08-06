@@ -43,14 +43,14 @@
 			var ctk = {};
 		</script>
 		<!--<script src="../../canvas-toolkit.min.js"></script>-->
-		<script src="../../ctk//util/AreaMap.js"></script>
-		<script src="../../ctk//util/Canvas.js"></script>
-		<script src="../../ctk//util/ProcessLoop.js"></script>
-		<script src="../../ctk//draw/Draw.js"></script>
-		<script src="../../ctk//draw/Rect.js"></script>
-		<script src="../../ctk//draw/Border.js"></script>
-		<script src="../../ctk//draw/Style.js"></script>
-		<script src="../../ctk//draw/Item.js"></script>
+		<script src="../../ctk/util/AreaMap.js"></script>
+		<script src="../../ctk/util/Canvas.js"></script>
+		<script src="../../ctk/util/ProcessLoop.js"></script>
+		<script src="../../ctk/draw/Draw.js"></script>
+		<script src="../../ctk/draw/Rect.js"></script>
+		<script src="../../ctk/draw/Border.js"></script>
+		<script src="../../ctk/draw/Style.js"></script>
+		<script src="../../ctk/draw/Item.js"></script>
 
 		<script>
 			/* global $ */
@@ -94,38 +94,46 @@
 
 
 			//---------------------------------------------------------------------
-			function UpdateUI()
+			function MakeGreenAndYellowRects(Context, X, Y)
 			{
-				var canvas = document.getElementById('canvas');
-				var context = canvas.getContext('2d');
-
-				var y = 10;
 				var border1 = new ctk.Border();
 				border1.BorderDepth = 20;
 				border1.BorderStyle = new ctk.LineStyle(1, 'white', 'green');
 
-				border1.BorderStyle.ShadowColor = 'white';
+				border1.BorderStyle.ShadowColor = 'gray';
 				border1.BorderStyle.ShadowBlur = 10;
-				// border1.BorderStyle.ShadowOffsetX = 5;
-				// border1.BorderStyle.ShadowOffsetY = 5;
+				border1.BorderStyle.ShadowOffsetX = 5;
+				border1.BorderStyle.ShadowOffsetY = 5;
 
 				border1.ClientStyle = new ctk.LineStyle(5, 'black', 'yellow');
-				border1.MoveTo(10, y).SetSize(100, 100).Render(context);
-				border1.MoveTo(border1.BorderRect.x2() + 20, y).SetSize(60, 100).Render(context);
-				border1.MoveTo(border1.BorderRect.x2() + 20, y).SetSize(100, 60).Render(context);
-				border1.MoveTo(border1.BorderRect.x2() + 20, y).SetSize(60, 60).Render(context);
+				border1.MoveTo(X, Y).SetSize(100, 100).Render(Context);
+				border1.MoveTo(border1.BorderRect.x2() + 20, Y).SetSize(60, 100).Render(Context);
+				border1.MoveTo(border1.BorderRect.x2() + 20, Y).SetSize(100, 60).Render(Context);
+				border1.MoveTo(border1.BorderRect.x2() + 20, Y).SetSize(60, 60).Render(Context);
 
-				y += 120;
+				return;
+			}
+			
+			
+			//---------------------------------------------------------------------
+			function MakeBlackAndWhiteRects(Context, X, Y)
+			{
 				var border2 = new ctk.Border();
 				border2.BorderDepth = 5;
 				border2.BorderStyle = new ctk.LineStyle(1, 'white', 'gray');
 				border2.ClientStyle = new ctk.LineStyle(1, 'black', '#cdcdcd');
-				border2.MoveTo(10, y).SetSize(100, 100).Render(context);
-				border2.MoveTo(border2.BorderRect.x2() + 20, y).SetSize(60, 100).Render(context);
-				border2.MoveTo(border2.BorderRect.x2() + 20, y).SetSize(100, 60).Render(context);
-				border2.MoveTo(border2.BorderRect.x2() + 20, y).SetSize(60, 60).Render(context);
+				border2.MoveTo(X, Y).SetSize(100, 100).Render(Context);
+				border2.MoveTo(border2.BorderRect.x2() + 20, Y).SetSize(60, 100).Render(Context);
+				border2.MoveTo(border2.BorderRect.x2() + 20, Y).SetSize(100, 60).Render(Context);
+				border2.MoveTo(border2.BorderRect.x2() + 20, Y).SetSize(60, 60).Render(Context);
 
-				y += 120;
+				return;
+			}
+			
+			
+			//---------------------------------------------------------------------
+			function MakeHelloWorldItems(Context, X, Y)
+			{
 				var item = new ctk.Item();
 
 				item.Border = new ctk.Border();
@@ -144,14 +152,30 @@
 				item.TextStyle.ShadowOffsetX = 2;
 				item.TextStyle.ShadowOffsetY = 2;
 
-				item.MoveTo(10, y).FitText(context, null, 100).Render(context);
-				item.MoveTo(item.Border.BorderRect.x2() + 20, y).FitText(context, 100, 100).Render(context);
-				item.MoveTo(item.Border.BorderRect.x2() + 20, y).FitText(context, 60, 100).Render(context);
-				item.MoveTo(item.Border.BorderRect.x2() + 20, y).FitText(context, 100, 60).Render(context);
-				item.MoveTo(item.Border.BorderRect.x2() + 20, y).FitText(context, 60, 60).Render(context);
-
+				item.MoveTo(X, Y).FitText(Context, null, 100).Render(Context);
+				item.MoveTo(item.Border.BorderRect.x2() + 20, Y).FitText(Context, 100, 100).Render(Context);
+				item.MoveTo(item.Border.BorderRect.x2() + 20, Y).FitText(Context, 60, 100).Render(Context);
+				item.MoveTo(item.Border.BorderRect.x2() + 20, Y).FitText(Context, 100, 60).Render(Context);
+				item.MoveTo(item.Border.BorderRect.x2() + 20, Y).FitText(Context, 60, 60).Render(Context);
+				
 				return;
 			}
+			
+			
+			//---------------------------------------------------------------------
+			function UpdateUI()
+			{
+				var canvas = document.getElementById('canvas');
+				var context = canvas.getContext('2d');
+				
+				MakeGreenAndYellowRects(context, 10, 10);
+				MakeBlackAndWhiteRects(context, 10, 130);
+				MakeHelloWorldItems(context, 10, 250);
+				
+				return;
+			}
+
+
 		</script>
 
 

@@ -1,6 +1,6 @@
 {
   "name": "canvas-objects",
-	"version": "0.01.001",
+	"version": "0.01.002",
 	"homepage": "https://github.com/agbowlin/canvas-objects",
 	"description": "Drawing objects for the HTML Canvas.",
 	"authors": [
