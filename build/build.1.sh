@@ -5,30 +5,6 @@ cd ~/workspace
 
 echo ==========================================
 echo
-echo === Building [canvas-objects.js]
-echo ...
-
-	# Explicitely declare the global ctk object.
-	echo	'var ctk = {};'					> canvas-objects.js
-	
-	# Concatenate the source files.
-	cat		ctk/util/AreaMap.js				>> canvas-objects.js
-	cat		ctk/util/Canvas.js				>> canvas-objects.js
-	cat		ctk/util/ProcessLoop.js			>> canvas-objects.js
-	cat		ctk/draw/Draw.js				>> canvas-objects.js
-	cat		ctk/draw/Rect.js				>> canvas-objects.js
-	cat		ctk/draw/Border.js				>> canvas-objects.js
-	cat		ctk/draw/Style.js				>> canvas-objects.js
-	cat		ctk/draw/Item.js				>> canvas-objects.js
-	
-	# Remove the line which declares the global ctk object.
-	sed -i -e "/ global ctk /d"		canvas-objects.js
-
-echo ...
-echo === Building succeeded. Wrote to [canvas-objects.js]
-echo
-echo ==========================================
-echo
 echo === Documenting [canvas-objects.js]
 echo === Clearing output [docs/]
 rm -fdr docs
@@ -36,7 +12,14 @@ echo ...
 
 	jsdoc \
 		--configure build/jsdoc.json	\
-		canvas-objects.js				\
+		ctk/util/AreaMap.js				\
+		ctk/util/Canvas.js				\
+		ctk/util/ProcessLoop.js			\
+		ctk/draw/Draw.js				\
+		ctk/draw/Rect.js				\
+		ctk/draw/Border.js				\
+		ctk/draw/Style.js				\
+		ctk/draw/Item.js				\
 
 echo ...
 echo === Documentation succeeded. Wrote to [docs/]
@@ -51,7 +34,14 @@ echo ...
 
 	java -jar node_modules/google-closure-compiler/compiler.jar \
 			--js										\
-				canvas-objects.js						\
+				ctk/util/AreaMap.js						\
+				ctk/util/Canvas.js						\
+				ctk/util/ProcessLoop.js					\
+				ctk/draw/Draw.js						\
+				ctk/draw/Rect.js						\
+				ctk/draw/Border.js						\
+				ctk/draw/Style.js						\
+				ctk/draw/Item.js						\
 			--js_output_file							\
 				canvas-objects.min.js					\
 			--externs									\
